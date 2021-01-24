@@ -11,7 +11,9 @@ capybara-*.html
 .rspec
 /log
 /tmp
+/node_modules/**/*
 
 ## Environment normalization:
 /.bundle
 /vendor/bundle
+
