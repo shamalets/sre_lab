@@ -1,0 +1,31 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+
+  host: <%= ENV['PSQL_HOST'] %>
+  port: 5432
+  database: <%= ENV['PSQL_DATABASE'] ? ENV['PSQL_DATABASE'] : 'sre_lab_dev' %>
+  username: <%= ENV['PSQL_USERNAME'] %>
+  password: <%= ENV['PSQL_PASSWORD'] %>
+
+test:
+  <<: *default
+
+  host: <%= ENV['PSQL_HOST'] %>
+  port: 5432
+  database: <%= ENV['PSQL_DATABASE'] ? ENV['PSQL_DATABASE'] : 'sre_lab_test' %>
+  username: <%= ENV['PSQL_USERNAME'] %>
+  password: <%= ENV['PSQL_PASSWORD'] %>
+
+production:
+  <<: *default
+
+  host: <%= ENV['PSQL_HOST'] %>
+  port: 5432
+  database: <%= ENV['PSQL_DATABASE'] ? ENV['PSQL_DATABASE'] : 'sre_lab_prod' %>
+  username: <%= ENV['PSQL_USERNAME'] %>
+  password: <%= ENV['PSQL_PASSWORD'] %>
