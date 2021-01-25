@@ -1,8 +1,11 @@
 FROM ruby:2.7.0
 # We specify everything will happen within the /app folder inside the container
 
-ENV BUNDLER_VERSION=2.2.6 \
-    APP_HOME=/home/app
+ARG BUNDLER_VERSION=2.2.6
+ARG APP_HOME=/home/app
+
+ENV BUNDLER_VERSION=${BUNDLER_VERSION} \ 
+    APP_HOME=${APP_HOME}
 
 WORKDIR ${APP_HOME}
 # We copy these files from our current application to the /app container
